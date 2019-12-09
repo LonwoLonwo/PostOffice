@@ -10,13 +10,14 @@ public class Loader {
         TreeSet<String> mailSet = new TreeSet<>();
 
         while(true){
+            System.out.println("Enter your e-mail address with \"ADD\": ");
             String str = reader.readLine();
             if(str.equals("EXIT")){
                 break;
             }
             else if(str.matches("ADD\\s\\D+.+")){
                 String mailAddress = str.substring(str.lastIndexOf("ADD")+4);
-                if(mailAddress.matches(".+@.+\\..+")){
+                if(mailAddress.matches("[a-zA-Z0-9_\\-.]+@[a-zA-Z0-9]+?\\.[a-zA-Z]{2,}")){
                     mailSet.add(mailAddress);
                 }
                 else{
